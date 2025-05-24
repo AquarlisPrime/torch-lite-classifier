@@ -15,9 +15,9 @@ Torch Lite Classifier leverages the EfficientNet Lite0 architecture to achieve e
 - Training pipeline with PyTorch and timm library  
 - Easy-to-use inference API and Gradio demo interface available  
 
-## Live Demo
-
-Try the model in action on the live demo at [ELiteVision] https://elitevision.onrender.com 
+## Implementation
+Can be accessed via : https://e14a7fe5267865b57e.gradio.live in kaggle https://www.kaggle.com/code/anjalisingh065/gradio-ui
+Also, the model has been implmented for demo at [ELiteVision] https://elitevision.onrender.com, though not accessible as app at present.
 
 ## Usage
 
