@@ -5,6 +5,7 @@ from torchvision import transforms
 from PIL import Image
 import timm
 import io
+import os
 
 app = FastAPI(
     title="EfficientNet-Lite0 CIFAR-10 API",
@@ -12,19 +13,18 @@ app = FastAPI(
     version="1.0"
 )
 
-# Class names for CIFAR-10 (more can be included)
+# CIFAR-10 classes
 class_names = [
     "airplane", "automobile", "bird", "cat", "deer",
     "dog", "frog", "horse", "ship", "truck"
 ]
 
-# CPU only
+# Set device to CPU
 device = torch.device("cpu")
 torch.set_num_threads(4)
-# torch.backends.quantized.engine = 'qnnpack'
 
-# Model load
-MODEL_PATH = r"C:\Users\Dell\Downloads\efficientnet_lite0_cifar10.pth"
+# Path to the model relative to the app.py file
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "efficientnet_lite0_cifar10.pth")
 
 def load_model():
     model = timm.create_model('efficientnet_lite0', pretrained=False, num_classes=10)
@@ -69,4 +69,5 @@ def home():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
+
 
