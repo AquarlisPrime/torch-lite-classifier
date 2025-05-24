@@ -5,3 +5,4 @@ torchvision
 pillow
 timm
 python-multipart
+gradio
